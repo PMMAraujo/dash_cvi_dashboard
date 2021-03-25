@@ -3,10 +3,15 @@ import dash_html_components as html
 import dash_core_components as dcc
 
 #LIST OF ALL STATES
-data = pd.read_csv("data/severe_cases_score_data.csv", dtype={'FIPS': str})
+URL_SEVERE_CASES_SCORE = "https://raw.githubusercontent.com/community-insight-impact/covid_community_vulnerability/master/data/severe_cases_score_data.csv"
+URL_ECONOMIC_SCORE = "https://raw.githubusercontent.com/community-insight-impact/covid_community_vulnerability/master/data/economic_score_data.csv"
+URL_MOBILE_HEALTH_SCORE = "https://raw.githubusercontent.com/community-insight-impact/covid_community_vulnerability/master/data/mobile_health_score_data.csv"
+
+data = pd.read_csv(URL_SEVERE_CASES_SCORE, dtype={'FIPS': str})
 data_str = data.applymap(str)
-data2 = pd.read_csv("data/economic_score_data.csv", dtype={'FIPS': str})
-data3 = pd.read_csv("data/mobile_health_score_data.csv", dtype={'FIPS': str})
+data2 = pd.read_csv(URL_ECONOMIC_SCORE, dtype={'FIPS': str})
+data3 = pd.read_csv(URL_MOBILE_HEALTH_SCORE, dtype={'FIPS': str})
+
 
 #Add county +state name
 all_counties = []

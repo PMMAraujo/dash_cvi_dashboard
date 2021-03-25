@@ -33,7 +33,6 @@ URL_MOBILE_HEALTH_SCORE = "https://raw.githubusercontent.com/community-insight-i
 data = pd.read_csv(URL_SEVERE_CASES_SCORE, dtype={'FIPS': str})
 data_str = data.applymap(str)
 data2 = pd.read_csv(URL_ECONOMIC_SCORE, dtype={'FIPS': str})
-# print(data2)
 data3 = pd.read_csv(URL_MOBILE_HEALTH_SCORE, dtype={'FIPS': str})
 
 

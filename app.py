@@ -24,12 +24,16 @@ with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-c
 
 external_stylesheets = [dbc.themes.BOOTSTRAP, 'https://codepen.io/chriddyp/pen/bWLwgP.css']
 
+URL_SEVERE_CASES_SCORE = "https://raw.githubusercontent.com/community-insight-impact/covid_community_vulnerability/master/data/severe_cases_score_data.csv"
+URL_ECONOMIC_SCORE = "https://raw.githubusercontent.com/community-insight-impact/covid_community_vulnerability/master/data/economic_score_data.csv"
+URL_MOBILE_HEALTH_SCORE = "https://raw.githubusercontent.com/community-insight-impact/covid_community_vulnerability/master/data/mobile_health_score_data.csv"
+
+
     #MERGE ALL DATA INTO 1 DF
-data = pd.read_csv("data/severe_cases_score_data.csv", dtype={'FIPS': str})
+data = pd.read_csv(URL_SEVERE_CASES_SCORE, dtype={'FIPS': str})
 data_str = data.applymap(str)
-data2 = pd.read_csv("data/economic_score_data.csv", dtype={'FIPS': str})
-# print(data2)
-data3 = pd.read_csv("data/mobile_health_score_data.csv", dtype={'FIPS': str})
+data2 = pd.read_csv(URL_ECONOMIC_SCORE, dtype={'FIPS': str})
+data3 = pd.read_csv(URL_MOBILE_HEALTH_SCORE, dtype={'FIPS': str})
 
 
 full_data = data.merge(data2, how='outer', left_on = ["FIPS", "State", "County"], right_on =["FIPS", "State", "County"] )
@@ -57,7 +61,7 @@ indicators_lst = [
  'covid_cases',
  'Hypertension Death Rate',
 '% Smokers',
-'% Adults with Obesity',
+'%  Adults with Obesity',
 '% Diagnosed Diabetes', #5
 '% disabled',
 '% Adults 65 and Older',

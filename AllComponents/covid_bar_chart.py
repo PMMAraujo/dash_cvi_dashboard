@@ -3,7 +3,8 @@ import pandas as pd
 import dash_core_components as dcc
 import dash_html_components as html
 
-data = pd.read_csv("data/severe_cases_score_data.csv", dtype={'FIPS': str})
+URL_SEVERE_CASES_SCORE = "https://raw.githubusercontent.com/community-insight-impact/covid_community_vulnerability/master/data/severe_cases_score_data.csv"
+data = pd.read_csv(URL_SEVERE_CASES_SCORE, dtype={'FIPS': str})
 
 #CODE FOR THE COVID CASES BAR CHART
 
